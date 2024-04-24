@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="Equipment__Management.Views.SignupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Equipment__Management.Views" xmlns:vm="clr-namespace:Equipment__Management.ViewModels"
+            mc:Ignorable="d" 
+            d:DesignHeight ="800" d:DesignWidth="400"
+            Height="800" Width="400"      
+            Background="White"
+             >
+
+    <StackPanel Orientation="Vertical" Margin="20">
+        <TextBlock Text="Register" FontSize="25"  
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" FontWeight="Bold" Padding="10"/>
+
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="First Name *" Grid.Row="0" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <TextBox x:Name="FirstName" Grid.Row="1" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left"/>
+
+            <TextBlock Text="Last Name" Grid.Row="2" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <TextBox x:Name="LastName" Grid.Row="3" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left" />
+
+            <TextBlock Text="Email Address" Grid.Row="4" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <TextBox x:Name="EmailAddress" Grid.Row="5" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left" />
+
+            <TextBlock Text="User Type *" Grid.Row="6" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <!--<TextBox x:Name="UserType" Grid.Row="7" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left" />-->
+            <ComboBox Grid.Row="7" Grid.Column="1" Padding="5,5"  Width="255" HorizontalAlignment="Left"      
+                x:Name="UserType" 
+                      ItemsSource="{Binding UserTypes}"
+                SelectedItem="{Binding Path=SelectedUserType, Mode=TwoWay}" 
+                      Text="{ Binding SelectedUserType.Description, Mode=OneWay}"                                            
+                DisplayMemberPath="Description"/>
+
+            <TextBlock Text="User Name *" Grid.Row="8" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <TextBox x:Name="UserName" Grid.Row="9" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left" />
+
+            <TextBlock Text="Password *" Grid.Row="10" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <TextBox x:Name="Password"  Grid.Row="11" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left" />
+
+            <TextBlock Text="Confirm Password *" Grid.Row="12" Grid.Column="1" Margin="0,15" HorizontalAlignment="Left" />
+            <TextBox x:Name="ConfirmPassword" Grid.Row="13" Grid.Column="1" Padding="0,5" Width="255" HorizontalAlignment="Left" />
+            <Button                 
+                Command="{ Binding RegisterCommand }"
+                Content="Submit" 
+                Foreground="White" 
+                Background="Black" Margin="0,10" Height="35" Width="250"
+                     Grid.Row="14" Grid.Column="1"/>
+        </Grid>
+
+
+
+    </StackPanel>
+</UserControl>
